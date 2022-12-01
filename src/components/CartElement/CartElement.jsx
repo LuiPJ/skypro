@@ -45,6 +45,8 @@ function CartElement({ props, deleteItem }) {
         </div>
       </div>
       <input
+        min={1}
+        max={20}
         type="number"
         className={styles.count}
         value={state.cart[elementIndex].count}
