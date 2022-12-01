@@ -9,4 +9,16 @@
   grid-auto-flow: row;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 32px;
+  grid-row-gap: 48px;
+}
+
+@media screen and (max-width: 650px) {
+  .container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .layout {
+    margin: 0 16px;
+  }
 }

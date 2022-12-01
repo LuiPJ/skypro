@@ -1,15 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import styles from "./HeaderElements.module.scss";
+import styles from "./HeaderElement.module.scss";
 
-function HeaderElements({ props }) {
+function HeaderElement({ props }) {
   return (
     <>
       {props.map((element) => (
         <div className={styles.elements} key={element.name}>
           <Link className={styles.links} to={element.path}>
-            {element.name}
+            <span className={styles.icon}>{element.icon}</span>
+            <span className={styles.text}>{element.name}</span>
           </Link>
         </div>
       ))}
@@ -17,4 +18,4 @@ function HeaderElements({ props }) {
   );
 }
 
-export default HeaderElements;
+export default HeaderElement;

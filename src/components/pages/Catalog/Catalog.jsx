@@ -1,19 +1,50 @@
 import React, { useState } from "react";
+import { useOutletContext } from "react-router-dom";
 
-import CatalogElements from "../../CatalogElements/CatalogElements";
+import CatalogElement from "../../CatalogElement/CatalogElement";
 import FilterSelect from "../../FilterSelect/FilterSelect";
-
-import ITEMS from "../constants";
 
 import styles from "./Catalog.module.scss";
 
+const COUNTER = 1;
+
 function Catalog() {
+  const [state, setState] = useOutletContext();
+  const { items } = state;
+
+  const handleElementCatalog = (id) => {
+    console.log("Click");
+    const foundElement = items.find((item) => item.id === id);
+
+    if (foundElement) {
+      setState((state) => {
+        const cartElementIndex = state.cart.findIndex(
+          (item) => item.id === foundElement.id
+        );
+
+        if (cartElementIndex !== -1) {
+          const newCart = [...state.cart];
+          newCart[cartElementIndex].count = String(
+            Number(newCart[cartElementIndex].count) + COUNTER
+          );
+          return {
+            ...state,
+            cart: newCart,
+          };
+        } else {
+          foundElement.count = String(Number(foundElement.count) + COUNTER);
+          return { ...state, cart: [...state.cart, foundElement] };
+        }
+      });
+    }
+  };
+
   const [selectedClient, setSelectedClient] = useState("all");
 
   const sortItems =
     selectedClient === "all"
-      ? ITEMS
-      : [...ITEMS].sort((a, b) => {
+      ? items
+      : [...items].sort((a, b) => {
           if (selectedClient === "cheap")
             return (
               Number(a.price.replace(" ", "")) -
@@ -35,7 +66,11 @@ function Catalog() {
       <FilterSelect handle={handleSelectChange} />
       <div className={styles.container}>
         {sortItems.map((item) => (
-          <CatalogElements key={item.id} props={item} />
+          <CatalogElement
+            key={item.id}
+            data={item}
+            handler={handleElementCatalog}
+          />
         ))}
       </div>
     </div>

@@ -9,6 +9,7 @@ function FilterSelect({ handle }) {
         <option value="all">Фильтр</option>
         <option value="expensive">Порядок: Сначала дорогие</option>
         <option value="cheap">Порядок: Сначала дешевые</option>
+        <span className={styles.arrow} />
       </select>
     </>
   );

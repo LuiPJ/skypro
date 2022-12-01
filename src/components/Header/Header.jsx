@@ -1,23 +1,17 @@
 import React from "react";
 
-import HeaderElements from "./HeaderElements/HeaderElements";
+import HeaderElement from "./HeaderElement/HeaderElement";
+
+import { HEADER_ELEMENTS } from "../../constants/constants";
 
 import styles from "./Header.module.scss";
 
 function Header() {
-  const headerElements = [
-    { name: "Каталог", path: "/catalog" },
-    {
-      name: "Корзина",
-      path: "/cart",
-    },
-  ];
-
   return (
     <div className={styles.header}>
       <div className={styles.interior}>Интерьер.</div>
       <div className={styles.elements}>
-        <HeaderElements props={headerElements} />
+        <HeaderElement props={HEADER_ELEMENTS} />
       </div>
     </div>
   );

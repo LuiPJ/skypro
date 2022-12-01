@@ -6,16 +6,16 @@ img {
 .App {
   margin: 0 120px;
   font-family: Montserrat, sans-serif, Times, serif;
-  display: grid;
+  overflow: auto;
 }
 
-@media screen and (max-width: 820px) {
+@media screen and (max-width: 834px) {
   .App {
     margin: 0 24px;
   }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 650px) {
   .App {
     margin: 0;
     justify-content: center;

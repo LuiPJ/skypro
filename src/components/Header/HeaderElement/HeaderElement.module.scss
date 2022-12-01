@@ -1,0 +1,32 @@
+.elements {
+  margin-right: 32px;
+}
+
+.elements:last-child {
+  margin-right: 0;
+}
+
+.links {
+  text-decoration: none;
+  color: #fff;
+}
+
+.icon {
+  display: none;
+}
+
+.text {
+
+  display: inline-block;
+}
+
+@media (max-width: 640px) {
+  .icon {
+    display: inline-block
+  }
+
+  .text {
+    display: none
+
+  }
+}
