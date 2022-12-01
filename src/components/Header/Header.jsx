@@ -1,6 +1,6 @@
 import React from "react";
 
-import HeaderElement from "./HeaderElement/HeaderElement";
+import HeaderElement from "../HeaderElement/HeaderElement";
 
 import { HEADER_ELEMENTS } from "../../constants/constants";
 
