@@ -13,9 +13,7 @@ function Catalog() {
   const { items } = state;
 
   const handleElementCatalog = (id) => {
-    console.log("Click");
     const foundElement = items.find((item) => item.id === id);
-
     if (foundElement) {
       setState((state) => {
         const cartElementIndex = state.cart.findIndex(
