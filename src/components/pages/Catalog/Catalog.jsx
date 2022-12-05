@@ -19,7 +19,6 @@ function Catalog() {
         const cartElementIndex = state.cart.findIndex(
           (item) => item.id === foundElement.id
         );
-
         if (cartElementIndex !== -1) {
           const newCart = [...state.cart];
           newCart[cartElementIndex].count = String(
